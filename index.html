@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="LIAR: Leveraging Inference Time Alignment (Best-of-N) to Jailbreak LLMs in Seconds.">
+  <meta name="keywords" content="Jailbreak, LLM, Best-of-N">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>LIAR: Jailbreak with Best-of-N</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.svg">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">LIAR: Leveraging Inference Time Alignment (Best-of-N) to Jailbreak LLMs in Seconds</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">James Beetham<sup>1</sup>,</span>
+            <span class="author-block">Souradip Chakraborty<sup>2</sup>,</span>
+            <span class="author-block">Mengdi Wang<sup>3</sup>,</span>
+            <span class="author-block">Furong Huang<sup>2</sup>,</span>
+            <span class="author-block">Amrit Singh Bedi<sup>1</sup>,</span>
+            <span class="author-block">Mubarak Shah<sup>1</sup></span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>University of Central Florida,</span>
+            <span class="author-block"><sup>2</sup>University of Maryland, College Park,</span>
+            <span class="author-block"><sup>3</sup>Princeton University,</span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href="https://arxiv.org/pdf/2412.05232"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/2412.05232"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <img src="./static/images/fig1-primary_figure.png"
+        alt="Primary figure from paper showing LIAR method."/>
+      <h2 class="subtitle has-text-centered">
+        LIAR is able to jailbreak black-box TargetLLMs efficiently without 
+        requiring training or gradient-based optimization.
+      </h2>
+    </div>
+  </div>
+</section>
+
+
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Traditional jailbreaks have successfully exposed vulnerabilities in 
+            LLMs, primarily relying on discrete combinatorial optimization, 
+            while more recent methods focus on training LLMs to generate 
+            adversarial prompts. However, both approaches are computationally 
+            expensive and slow, often requiring significant resources to 
+            generate a single successful attack. We hypothesize that the 
+            inefficiency of these methods arises from an inadequate 
+            characterization of the jailbreak problem itself. To address this 
+            gap, we approach the jailbreak problem as an alignment problem, 
+            leading us to propose <i>LIAR</i> (Leveraging Inference time Alignment to 
+            jailbReak), a fast and efficient best-of-N approach tailored for 
+            jailbreak attacks. LIAR offers several key advantages: it eliminates 
+            the need for additional training, operates in a fully black-box 
+            setting, significantly reduces computational overhead, and produces 
+            more human-readable adversarial prompts while maintaining 
+            competitive attack success rates. Our results demonstrate that a 
+            best-of-N approach is a simple yet highly effective strategy for 
+            evaluating the robustness of aligned LLMs, achieving attack success 
+            rates (ASR) comparable to state-of-the-art methods while offering a 
+            10x improvement in perplexity and a significant speedup in 
+            Time-to-Attack, reducing execution time from tens of hours to 
+            seconds. Additionally, We also provide sub-optimality guarantees for 
+            the proposed LIAR. Our work highlights the potential of efficient, 
+            alignment-based jailbreak strategies for assessing and 
+            stress-testing AI safety measures.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Examples. -->
+    <!-- <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Related Works</h2>
+
+        <div class="content has-text-justified">
+          <p>
+            Other jailbreaks with best-of-n components have been introduced 
+            around the same time as ours.
+          </p>
+          <p>
+            <a href="https://arxiv.org/abs/2412.03556">Best-of-N Jailbreaking</a> 
+            introduces a similar idea, with direct prompt-manipulation instead of
+            suffix generation, and explores additional modalities besides just text.
+          </p>
+        </div>
+      </div>
+    </div> -->
+    <!--/ Examples. -->
+
+    <!-- Concurrent Work. -->
+    <!-- <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Related Works</h2>
+
+        <div class="content has-text-justified">
+          <p>
+            Other jailbreaks with best-of-n components have been introduced 
+            around the same time as ours.
+          </p>
+          <p>
+            <a href="https://arxiv.org/abs/2412.03556">Best-of-N Jailbreaking</a> 
+            introduces a similar idea, with direct prompt-manipulation instead of
+            suffix generation, and explores additional modalities besides just text.
+          </p>
+        </div>
+      </div>
+    </div> -->
+    <!--/ Concurrent Work. -->
+
+  </div>
+</section>
+
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@article{beetham2024liar,
+    title={LIAR: Leveraging Alignment (Best-of-N) to Jailbreak LLMs in Seconds},
+    author={Beetham, James and Chakraborty, Souradip and Wang, Mengdi and Huang, Furong and Bedi, Amrit Singh and Shah, Mubarak},
+    journal={arXiv preprint arXiv:2412.05232},
+    year={2024}
+}</code></pre>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            Website adapted from this <a href="https://github.com/nerfies/nerfies.github.io">source code</a>.
+          </p>
+          <p>
+            This website is licensed under a <a rel="license"
+            href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
