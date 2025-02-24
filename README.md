@@ -1,6 +1,6 @@
 # LIAR Jailbreak
 
-This is the repository that contains source code for the [Liar-Jailbreak website](https://liar-jailbreak.github.io).
+This is the repository that contains source code for the [Liar-Jailbreak website](https://james-beetham.github.io/liar-jailbreak.github.io/).
 
 If you find the LIAR jailbreak useful for your work please cite:
 ```
